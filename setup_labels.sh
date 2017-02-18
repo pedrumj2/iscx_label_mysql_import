@@ -8,19 +8,19 @@ if [ "$#" -ne 1 ]; then
   exit
 fi
 
-ARRAY=("D12" "D13" "D14" "D15A" "D15B" "D15C" "D16A" "D16B" "D16C" "D17A" "D17B" "D17C")
-
-for i in "${ARRAY[@]}"
-do
-
+#ARRAY=("D12" "D13" "D14" "D15A" "D15B" "D15C" "D16A" "D16B" "D16C" "D17A" "D17B" "D17C")
+#
+#for i in "${ARRAY[@]}"
+#do
+#    eval "mysql -u root -p'$1' -e \"drop schema $i;\""
 #    eval "mysql -u root -p'$1' -e \"CREATE SCHEMA $i;\""
 #    eval "../mysql_csv_import/./script.sh \$1 $i ../raw/labelsCSV/${i}CSV"
 #    eval "mysql -u root -p'$1' -e \"delete from $i.${i}CSV
 #                                        where isnull(source) = true or isnull(destination) = true\"" 
 #                                        
-                                        
-                                        
-                                        
+#                                        
+#                                        
+#                                        
 #  eval "mysql -u root -p'$1' $i -e \"CREATE TABLE $i.ipaddr(
 #                                      idipaddr  INT unsigned NOT NULL AUTO_INCREMENT,
 #                                      ipValue CHAR(30) NOT NULL,
@@ -38,11 +38,9 @@ do
 #                                            SELECT distinct destination as ip FROM  $i.${i}CSV 
 #                                      ) as t\""               
 #                  
-#  
 #  #there may have been another 0.0.0.0, so we will remove it here
 #  eval "mysql -u root -p'$1' $i -e \"delete from $i.ipaddr
 #                                      where ipValue = '0.0.0.0' and idipaddr >1\""
-#  
 #  
 #  eval "mysql -u root -p'$1' $i -e \"CREATE TABLE $i.labels (
 #                                      idlabels INT NOT NULL AUTO_INCREMENT,
@@ -55,48 +53,38 @@ do
 #                                      INDEX F (dest ASC, startTime ASC));\""
 #                                      
 #  eval "mysql -u root -p'$1' $i -e \"insert into labels(source, dest, startTime, endTime, tag)
-#                                      select S.idipaddr as sIP, D.idipaddr as DIP, startDateTime, stopDateTime, tag from D12.D12CSV
-#                                      inner join D12.ipaddr as S
-#                                      on D12CSV.source = S.ipValue
-#                                      inner join D12.ipaddr as D
-#                                      on D12CSV.destination = D.ipValue\""
-                                      
+#                                      select S.idipaddr as sIP, D.idipaddr as DIP, startDateTime, stopDateTime, tag from $i.${i}CSV
+#                                      inner join $i.ipaddr as S
+#                                      on ${i}CSV.source = S.ipValue
+#                                      inner join $i.ipaddr as D
+#                                      on ${i}CSV.destination = D.ipValue\""
+#                                      
+#  #eval "mysql -u root -p'$1' $i -e \"drop table $i.${i}CSV\""
+#  ARRAY2=("1" "2" "4" "8" "12" "18" "22" "30" "45" "60" "90" "120")
+#  (cd ../net_con_count
+#    for j in "${ARRAY2[@]}"
+#    do
+#     java Main $i $j
+#     eval "mysql -u root -p'$1' $i -e \"delete FROM $i.con_count_$j
+#                                        where count < 0;\""
+#     
+#    done
+#  )
+#      
+#done
+#    
 
-  eval "mysql -u root -p'$1' $i -e \"drop table $i.${i}CSV\""
-      
-done
+
+                                     
+ARRAY2=("1" "2" "4" "8" "12" "18" "22" "30" "45" "60" "90" "120")
+(cd ../net_con_count
+  for j in "${ARRAY2[@]}"
+  do
+   java Main D11 $j 0
+   eval "mysql -u root -p'$1' D11 -e \"delete FROM D11.con_count_$j
+                                      where count < 0;\""
+   
+  done
+)
+
     
-
-
-
-   
-   
-   #Import labeled flows
-#"
-#eval "mysql -u root -p'$1' $2 -e \"CREATE SCHEMA D13;\""
-#eval "mysql -u root -p'$1' $2 -e \"CREATE SCHEMA D14;\""
-#eval "mysql -u root -p'$1' $2 -e \"CREATE SCHEMA D15A;\""
-#eval "mysql -u root -p'$1' $2 -e \"CREATE SCHEMA D15B;\""
-#eval "mysql -u root -p'$1' $2 -e \"CREATE SCHEMA D15C;\""
-#eval "mysql -u root -p'$1' $2 -e \"CREATE SCHEMA D16A;\""
-#eval "mysql -u root -p'$1' $2 -e \"CREATE SCHEMA D16B;\""
-#eval "mysql -u root -p'$1' $2 -e \"CREATE SCHEMA D16C;\""
-#eval "mysql -u root -p'$1' $2 -e \"CREATE SCHEMA D17A;\""
-#eval "mysql -u root -p'$1' $2 -e \"CREATE SCHEMA D17B;\""
-#eval "mysql -u root -p'$1' $2 -e \"CREATE SCHEMA D17C;\""
-
-#"
-#eval "../mysql_csv_import/./script.sh \$1 D13 ../raw/labelsCSV/D13"
-#eval "../mysql_csv_import/./script.sh \$1 D14 ../raw/labelsCSV/D14"
-#eval "../mysql_csv_import/./script.sh \$1 D15A ../raw/labelsCSV/D15A"
-#eval "../mysql_csv_import/./script.sh \$1 D15B ../raw/labelsCSV/D15B"
-#eval "../mysql_csv_import/./script.sh \$1 D15C ../raw/labelsCSV/D15C"
-#eval "../mysql_csv_import/./script.sh \$1 D16A ../raw/labelsCSV/D16A"
-#eval "../mysql_csv_import/./script.sh \$1 D16B ../raw/labelsCSV/D16B"
-#eval "../mysql_csv_import/./script.sh \$1 D16C ../raw/labelsCSV/D16C"
-#eval "../mysql_csv_import/./script.sh \$1 D17A ../raw/labelsCSV/D17A"
-#eval "../mysql_csv_import/./script.sh \$1 D17B ../raw/labelsCSV/D17B"
-#eval "../mysql_csv_import/./script.sh \$1 D17C ../raw/labelsCSV/D17C"
-
-
-
