@@ -52,6 +52,13 @@ do
   eval "mysql -u root -p'$1' $i -e \"CREATE TABLE $i.labels (
                                       idlabels INT NOT NULL AUTO_INCREMENT,
                                       source INT NOT NULL,
+                                      totalSourceBytes INT NOT NULL,
+                                      totalDestBytes INT NOT NULL,
+                                      totalSourcePackets INT NOT NULL,
+                                      totalDestPackets INT NOT NULL, 
+                                      direction char(10) NOT NULL, 
+                                      protocol INT NOT NULL, 
+                                      appName INT NOT NULL, 
                                       dest INT NOT NULL,
                                       startTime DATETIME NOT NULL,
                                       endTime DATETIME NOT NULL,

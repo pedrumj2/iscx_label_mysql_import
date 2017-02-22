@@ -1,0 +1,48 @@
+D12CSV
+D12.D12CSV: Records: 133194  Deleted: 0  Skipped: 0  Warnings: 13
+mysqlimport --local --ignore-lines=1 --fields-terminated-by=, -u root -p'fafdRE$3' D12
+../raw/labelsCSV/D12CSV
+D13CSV
+D13.D13CSV: Records: 275529  Deleted: 0  Skipped: 0  Warnings: 13
+mysqlimport --local --ignore-lines=1 --fields-terminated-by=, -u root -p'fafdRE$3' D13
+../raw/labelsCSV/D13CSV
+D14CSV
+D14.D14CSV: Records: 171381  Deleted: 0  Skipped: 0  Warnings: 13
+mysqlimport --local --ignore-lines=1 --fields-terminated-by=, -u root -p'fafdRE$3' D14
+../raw/labelsCSV/D14CSV
+D15ACSV
+D15A.D15ACSV: Records: 192042  Deleted: 0  Skipped: 0  Warnings: 13
+mysqlimport --local --ignore-lines=1 --fields-terminated-by=, -u root -p'fafdRE$3' D15A
+../raw/labelsCSV/D15ACSV
+D15BCSV
+D15B.D15BCSV: Records: 183624  Deleted: 0  Skipped: 0  Warnings: 13
+mysqlimport --local --ignore-lines=1 --fields-terminated-by=, -u root -p'fafdRE$3' D15B
+../raw/labelsCSV/D15BCSV
+D15CCSV
+D15C.D15CCSV: Records: 196035  Deleted: 0  Skipped: 0  Warnings: 13
+mysqlimport --local --ignore-lines=1 --fields-terminated-by=, -u root -p'fafdRE$3' D15C
+../raw/labelsCSV/D15CCSV
+D16ACSV
+D16A.D16ACSV: Records: 182969  Deleted: 0  Skipped: 0  Warnings: 13
+mysqlimport --local --ignore-lines=1 --fields-terminated-by=, -u root -p'fafdRE$3' D16A
+../raw/labelsCSV/D16ACSV
+D16BCSV
+D16B.D16BCSV: Records: 142372  Deleted: 0  Skipped: 0  Warnings: 13
+mysqlimport --local --ignore-lines=1 --fields-terminated-by=, -u root -p'fafdRE$3' D16B
+../raw/labelsCSV/D16BCSV
+D16CCSV
+D16C.D16CCSV: Records: 196925  Deleted: 0  Skipped: 0  Warnings: 13
+mysqlimport --local --ignore-lines=1 --fields-terminated-by=, -u root -p'fafdRE$3' D16C
+../raw/labelsCSV/D16CCSV
+D17ACSV
+D17A.D17ACSV: Records: 186139  Deleted: 0  Skipped: 0  Warnings: 13
+mysqlimport --local --ignore-lines=1 --fields-terminated-by=, -u root -p'fafdRE$3' D17A
+../raw/labelsCSV/D17ACSV
+D17BCSV
+D17B.D17BCSV: Records: 149626  Deleted: 0  Skipped: 0  Warnings: 13
+mysqlimport --local --ignore-lines=1 --fields-terminated-by=, -u root -p'fafdRE$3' D17B
+../raw/labelsCSV/D17BCSV
+D17CCSV
+D17C.D17CCSV: Records: 61833  Deleted: 0  Skipped: 0  Warnings: 13
+mysqlimport --local --ignore-lines=1 --fields-terminated-by=, -u root -p'fafdRE$3' D17C
+../raw/labelsCSV/D17CCSV
